@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watchPostEffect } from 'vue'
 import { Color } from './types'
 
 import VButton from './VButton.vue'
@@ -39,12 +39,9 @@ function toggleDialog(open?: boolean) {
   el[open ?? !el.open ? 'showModal' : 'close']()
 }
 
-watch(
-  () => value?.value,
-  () => {
-    toggleDialog(Boolean(value?.value))
-  }
-)
+watchPostEffect(() => {
+  toggleDialog(Boolean(value?.value))
+})
 </script>
 
 <style scoped>
