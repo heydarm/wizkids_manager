@@ -22,9 +22,9 @@ defineProps<Props>()
   $colors: ('red', 'green', 'blue', 'yellow', 'grey');
 
   @each $color in $colors {
-    &.#{$color} {
+    &:where(.#{$color}) {
       color: var(--#{$color}-700);
-      border: 1px solid var(--#{$color}-700);
+      border: 1px solid var(--#{$color}-600);
       background-color: var(--#{$color}-50);
 
       &:hover {
