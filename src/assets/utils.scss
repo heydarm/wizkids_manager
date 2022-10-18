@@ -1,0 +1,30 @@
+@use 'sass:list';
+@use 'sass:string';
+
+$sides: ('top', 'right', 'bottom', 'left');
+$paddings: (0, 0.25rem, 0.5rem, 0.75rem, 1rem, 1.25rem, 1.5rem, 1.75rem, 2rem);
+
+@for $i from 1 through list.length($paddings) {
+  $padding: list.nth($paddings, $i);
+  $i: $i - 1;
+
+  .p-#{$i} {
+    padding: $padding;
+  }
+
+  .px-#{$i} {
+    padding-left: $padding;
+    padding-right: $padding;
+  }
+
+  .py-#{$i} {
+    padding-top: $padding;
+    padding-bottom: $padding;
+  }
+
+  @each $dir in $sides {
+    .p#{string.slice($dir, 0, 1)}-#{$i} {
+      padding-#{$dir}: $padding;
+    }
+  }
+}

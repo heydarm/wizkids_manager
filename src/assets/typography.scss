@@ -1,0 +1,62 @@
+.fw-regular {
+  font-weight: 400;
+}
+
+.fw-medium {
+  font-weight: 500;
+}
+
+.fw-semibold {
+  font-weight: 600;
+}
+
+// Title
+
+.title1 {
+  font-size: 2rem;
+}
+
+.title2 {
+  font-size: 1.75rem;
+}
+
+.title3 {
+  font-size: 1.5rem;
+}
+
+.title4 {
+  font-size: 1.25rem;
+}
+
+.title5 {
+  font-size: 1.125rem;
+}
+
+.title1,
+.title2,
+.title3,
+.title4,
+.title5 {
+  line-height: 1.25;
+}
+
+// Body
+
+.body1 {
+  font-size: 1rem;
+}
+
+.body2 {
+  font-size: 0.875rem;
+}
+
+.body1,
+.body2 {
+  line-height: 1.5;
+}
+
+// Caption
+
+.caption {
+  font-size: 0.75rem;
+}
