@@ -8,6 +8,10 @@
       @delete="handleDelete(employee.id)"
     />
   </EmployeeList>
+
+  <VShowManager v-model="editModal">
+    <EmployeeEditModal />
+  </VShowManager>
 </template>
 
 <script setup lang="ts">
@@ -15,6 +19,8 @@ import { EmployeeList, EmployeeListItem } from '@/components/EmployeeList'
 import { Role, type Employee } from '@/types'
 import { generateEmployees } from '@/utils/employee'
 import { ref } from 'vue'
+import EmployeeEditModal from '@/components/EmployeeEditModal.vue'
+import { VShowManager } from '@/ui'
 
 const employees = ref(
   generateEmployees([
@@ -25,7 +31,10 @@ const employees = ref(
   ])
 )
 
+const editModal = ref(false)
+
 function handleEdit() {
+  editModal.value = true
 }
 
 function handleDelete(id: Employee['id']) {
