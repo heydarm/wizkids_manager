@@ -28,3 +28,15 @@ $paddings: (0, 0.25rem, 0.5rem, 0.75rem, 1rem, 1.25rem, 1.5rem, 1.75rem, 2rem);
     }
   }
 }
+
+@each $width in (0, 25, 50, 75, 100) {
+  .w-#{$width} {
+    width: $width * 1%;
+  }
+}
+
+@each $o in ('hidden', 'auto') {
+  .overflow-#{$o} {
+    overflow: $o;
+  }
+}
