@@ -21,11 +21,3 @@ function toggle(value?: boolean) {
 
 showProvider({ value: shouldShow, toggle })
 </script>
-
-<style scoped>
-.dialog {
-  margin: auto;
-  border: none;
-  border-radius: 0.25rem;
-}
-</style>
