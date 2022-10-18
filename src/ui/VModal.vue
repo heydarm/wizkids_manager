@@ -3,10 +3,11 @@
     ref="dialogEl"
     class="dialog"
   >
-    <header class="header">
+    <header class="header p-4">
       <slot name="header" />
 
       <VButton
+        class="close-btn"
         :color="Color.red"
         @click="toggle?.(false)"
       >
@@ -16,7 +17,7 @@
 
     <slot />
 
-    <footer class="footer">
+    <footer class="footer p-4">
       <slot name="footer" />
     </footer>
   </dialog>
@@ -33,21 +34,55 @@ const { value, toggle } = showInjector() ?? {}
 
 const dialogEl = ref<HTMLDialogElement | null>(null)
 
-function toggleDialog(open?: boolean) {
+function toggleDialog(open?: any) {
   const el = dialogEl.value
   if (!el) return
-  el[open ?? !el.open ? 'showModal' : 'close']()
+
+  if (open === 0) {
+    el.showModal()
+    return
+  }
+
+  const flag = open === undefined ? !el.open : open
+  el[flag ? 'showModal' : 'close']()
 }
 
 watchPostEffect(() => {
-  toggleDialog(Boolean(value?.value))
+  toggleDialog(value?.value)
 })
 </script>
 
 <style scoped>
 .dialog {
+  width: max(20rem, 75%);
   margin: auto;
   border: none;
   border-radius: 0.25rem;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--grey-200);
+}
+
+.close-btn {
+  display: flex;
+  border-radius: 10rem;
+  margin-left: auto;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  line-height: 1;
+  background-color: transparent;
+  font-size: 1.5rem;
 }
 </style>
