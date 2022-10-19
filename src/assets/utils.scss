@@ -2,29 +2,33 @@
 @use 'sass:string';
 
 $sides: ('top', 'right', 'bottom', 'left');
-$paddings: (0, 0.25rem, 0.5rem, 0.75rem, 1rem, 1.25rem, 1.5rem, 1.75rem, 2rem);
+$spacings: (0, 0.25rem, 0.5rem, 0.75rem, 1rem, 1.25rem, 1.5rem, 1.75rem, 2rem);
 
-@for $i from 1 through list.length($paddings) {
-  $padding: list.nth($paddings, $i);
+@for $i from 1 through list.length($spacings) {
+  $spacing: list.nth($spacings, $i);
   $i: $i - 1;
 
-  .p-#{$i} {
-    padding: $padding;
-  }
+  @each $type in ('padding', 'margin') {
+    $prefix: string.slice($type, 0, 1);
 
-  .px-#{$i} {
-    padding-left: $padding;
-    padding-right: $padding;
-  }
+    .#{$prefix}-#{$i} {
+      #{$type}: $spacing;
+    }
 
-  .py-#{$i} {
-    padding-top: $padding;
-    padding-bottom: $padding;
-  }
+    .#{$prefix}x-#{$i} {
+      #{$type}-left: $spacing;
+      #{$type}-right: $spacing;
+    }
 
-  @each $dir in $sides {
-    .p#{string.slice($dir, 0, 1)}-#{$i} {
-      padding-#{$dir}: $padding;
+    .#{$prefix}y-#{$i} {
+      #{$type}-top: $spacing;
+      #{$type}-bottom: $spacing;
+    }
+
+    @each $dir in $sides {
+      .#{$prefix}#{string.slice($dir, 0, 1)}-#{$i} {
+        #{$type}-#{$dir}: $spacing;
+      }
     }
   }
 }
@@ -39,4 +43,16 @@ $paddings: (0, 0.25rem, 0.5rem, 0.75rem, 1rem, 1.25rem, 1.5rem, 1.75rem, 2rem);
   .overflow-#{$o} {
     overflow: $o;
   }
+}
+
+.d-flex {
+  display: flex;
+}
+
+.juco-end {
+  justify-content: end;
+}
+
+.alit-center {
+  align-items: center;
 }
