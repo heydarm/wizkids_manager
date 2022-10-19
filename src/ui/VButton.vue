@@ -1,14 +1,17 @@
 <template>
-  <button :class="['button', color]"><slot /></button>
+  <button :class="['button', color, variant]"><slot /></button>
 </template>
 
 <script setup lang="ts">
 import type { Color } from './types'
 
-interface Props {
-  color?: Color
-}
-defineProps<Props>()
+withDefaults(
+  defineProps<{
+    color?: Color
+    variant?: 'contained' | 'outlined'
+  }>(),
+  { variant: 'contained' }
+)
 </script>
 
 <style scoped lang="scss">
@@ -22,13 +25,23 @@ defineProps<Props>()
   $colors: ('red', 'green', 'blue', 'yellow', 'grey');
 
   @each $color in $colors {
-    &:where(.#{$color}) {
+    &:where(.outlined.#{$color}) {
       color: var(--#{$color}-700);
       border: 1px solid var(--#{$color}-600);
       background-color: var(--#{$color}-50);
 
       &:hover {
         background-color: var(--#{$color}-100);
+      }
+    }
+
+    &:where(.contained.#{$color}) {
+      color: white;
+      border: 1px solid var(--#{$color}-600);
+      background-color: var(--#{$color}-500);
+
+      &:hover {
+        background-color: var(--#{$color}-600);
       }
     }
   }

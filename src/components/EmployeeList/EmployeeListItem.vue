@@ -9,7 +9,7 @@
 
     <div class="info">
       <div class="header">
-        <span class="title4 fw-semibold">{{ firstName }} {{ lastName }}</span>
+        <span class="title4 fw-medium">{{ firstName }} {{ lastName }}</span>
         <VBadge
           :color="Color.blue"
           class="caption fw-medium"
@@ -24,12 +24,14 @@
       <VButton
         :color="Color.blue"
         @click="emit('edit')"
+        variant="outlined"
       >
         Edit
       </VButton>
       <VButton
         :color="Color.red"
         @click="emit('delete')"
+        variant="outlined"
       >
         &times;
       </VButton>

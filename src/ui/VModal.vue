@@ -10,6 +10,7 @@
         class="close-btn"
         :color="Color.red"
         @click="toggle?.(false)"
+        variant="outlined"
       >
         &times;
       </VButton>
@@ -54,7 +55,7 @@ watchPostEffect(() => {
 
 <style scoped>
 .dialog {
-  width: max(20rem, 75%);
+  width: max(20rem, 50%);
   margin: auto;
   border: none;
   border-radius: 0.25rem;
@@ -63,7 +64,6 @@ watchPostEffect(() => {
 .header {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 1rem;
 }
 
 .footer {
@@ -76,7 +76,6 @@ watchPostEffect(() => {
 }
 
 .close-btn {
-  display: flex;
   border-radius: 10rem;
   margin-left: auto;
   padding: 0.25rem 0.5rem;
