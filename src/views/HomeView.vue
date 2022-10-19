@@ -1,26 +1,24 @@
 <template>
-  <EmployeeList>
-    <EmployeeListItem
-      v-for="employee in employees"
-      :key="employee.id"
-      v-bind="employee"
-      @edit="handleEdit()"
-      @delete="handleDelete(employee.id)"
-    />
-  </EmployeeList>
+  <main class="p-5">
+    <header class="d-flex alit-center juco-end">
+      <VButton :color="Color.blue">+ Add new wizkid</VButton>
+    </header>
 
-  <VShowManager v-model="editModal">
-    <EmployeeEditModal />
-  </VShowManager>
+    <TheEmployees
+      :employees="employees"
+      @edit-employee="updEmployee"
+      @delete-employee="deleteEmployee"
+    />
+  </main>
 </template>
 
 <script setup lang="ts">
-import { EmployeeList, EmployeeListItem } from '@/components/EmployeeList'
 import { Role, type Employee } from '@/types'
 import { generateEmployees } from '@/utils/employee'
 import { ref } from 'vue'
-import EmployeeEditModal from '@/components/EmployeeEditModal.vue'
-import { VShowManager } from '@/ui'
+import { VButton } from '@/ui'
+import { Color } from '@/ui/types'
+import TheEmployees from '../components/TheEmployees.vue'
 
 const employees = ref(
   generateEmployees([
@@ -31,13 +29,13 @@ const employees = ref(
   ])
 )
 
-const editModal = ref(false)
-
-function handleEdit() {
-  editModal.value = true
+function updEmployee(data: Employee) {
+  employees.value = employees.value.map((item) =>
+    item.id === data.id ? { ...item, ...data } : item
+  )
 }
 
-function handleDelete(id: Employee['id']) {
+function deleteEmployee(id: Employee['id']) {
   employees.value = employees.value.filter((item) => item.id !== id)
 }
 </script>

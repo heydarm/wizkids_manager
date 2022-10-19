@@ -61,16 +61,19 @@ const emit = defineEmits<{
 }>()
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .container {
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: auto 1fr auto;
   gap: 0.5rem;
-  margin: 1rem;
   padding: 1rem 1.5rem;
   border: 1px solid var(--blue-300);
   border-radius: 0.25rem;
+
+  &:not(:first-child) {
+    margin-top: 1rem;
+  }
 }
 
 .info {
