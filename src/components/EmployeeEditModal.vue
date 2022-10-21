@@ -6,7 +6,7 @@
 
     <div class="px-5">
       <VFormGroup label="Name">
-        <VInput v-model="localEmployee.firstName" />
+        <VInput v-model="localEmployee.first_name" />
       </VFormGroup>
     </div>
 
@@ -49,8 +49,8 @@ function handleSubmit() {
 }
 
 const localEmployee = ref<BaseEmployee>({
-  firstName: '',
-  lastName: '',
+  first_name: '',
+  last_name: '',
   role: Role.intern,
   email: '',
   phone: '',

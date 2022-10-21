@@ -1,6 +1,6 @@
 export interface BaseEmployee {
-  firstName: string
-  lastName: string
+  first_name: string
+  last_name: string
   role: Role
   email: string
   phone: string

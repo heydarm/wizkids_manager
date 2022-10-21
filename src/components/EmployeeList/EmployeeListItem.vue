@@ -9,7 +9,7 @@
 
     <div class="info">
       <div class="header">
-        <span class="title4 fw-medium">{{ firstName }} {{ lastName }}</span>
+        <span class="title4 fw-medium">{{ first_name }} {{ last_name }}</span>
         <VBadge
           :color="Color.blue"
           class="caption fw-medium"
@@ -46,8 +46,8 @@ import { Color } from '@/ui/types'
 
 interface Employee {
   id: number
-  firstName: string
-  lastName: string
+  first_name: string
+  last_name: string
   role: Role
   email: string
   phone: string

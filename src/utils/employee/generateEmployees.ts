@@ -7,12 +7,12 @@ export const generateEmployees = (
 
   for (let i = 0; i < emplyees.length; i++) {
     const { name: fullName, role } = emplyees[i]
-    const [firstName, lastName] = fullName.split(' ')
-    const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@example.com`
+    const [first_name, last_name] = fullName.split(' ')
+    const email = `${first_name.toLowerCase()}.${last_name.toLowerCase()}@example.com`
     res.push({
       id: i + 1,
-      firstName,
-      lastName,
+      first_name,
+      last_name,
       role,
       email,
       phone: '+1234567890',
