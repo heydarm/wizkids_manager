@@ -54,6 +54,7 @@ const localEmployee = ref<BaseEmployee>({
   role: Role.intern,
   email: '',
   phone: '',
+  image: '',
   ...props.employee
 })
 

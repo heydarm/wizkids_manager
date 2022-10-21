@@ -4,11 +4,11 @@ export interface BaseEmployee {
   role: Role
   email: string
   phone: string
+  image: string
 }
 
 export interface Employee extends BaseEmployee {
   id: number
-  image: string
 }
 
 export enum Role {
