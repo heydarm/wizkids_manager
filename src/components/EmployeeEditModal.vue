@@ -57,7 +57,7 @@ const localEmployee = ref<BaseEmployee>({
   ...props.employee
 })
 
-const { toggle } = showInjector() ?? {}
+const { toggle } = showInjector()
 </script>
 
 <style scoped></style>

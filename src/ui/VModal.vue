@@ -31,7 +31,7 @@ import { Color } from './types'
 import VButton from './VButton.vue'
 import { showInjector } from './VShowManager'
 
-const { value, toggle } = showInjector() ?? {}
+const { value, toggle } = showInjector()
 
 const dialogEl = ref<HTMLDialogElement | null>(null)
 

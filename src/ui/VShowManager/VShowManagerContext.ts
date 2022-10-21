@@ -5,4 +5,5 @@ type Value = {
   toggle: (value?: any) => void
 }
 export const showProvider = (value: Value) => provide('value', value)
-export const showInjector = () => inject<Value>('value')
+export const showInjector = () =>
+  inject<Value>('value') ?? ({} as Partial<Value>)

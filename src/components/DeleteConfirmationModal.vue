@@ -28,7 +28,7 @@
 import { showInjector, VButton, VModal } from '@/ui'
 import { Color } from '@/ui/types'
 
-const { toggle } = showInjector() ?? {}
+const { toggle } = showInjector()
 
 const emit = defineEmits<{
   (e: 'submit'): void
